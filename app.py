@@ -1,7 +1,8 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import asyncio
 import hashlib
+import hmac
 import ipaddress
 import os
 import socket
@@ -221,7 +222,7 @@ def validate_rapidapi_proxy_secret(
             detail="This endpoint must be called through the authorized gateway.",
         )
 
-    if not hashlib.compare_digest(configured_secret, received_secret):
+    if not hmac.compare_digest(configured_secret, received_secret):
         raise HTTPException(
             status_code=403,
             detail="Invalid API gateway credentials.",
