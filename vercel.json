@@ -1,0 +1,10 @@
+@'
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "app.py": {
+      "maxDuration": 30
+    }
+  }
+}
+'@ | Set-Content -Encoding UTF8 vercel.json
